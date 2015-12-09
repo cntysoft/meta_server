@@ -17,8 +17,10 @@ MsApplication
                                'META_SERVER_VERSION="' + project.rmmgrVersion + '"'
                             ])
    files: [
-       "main.cpp",
-   ]
+        "application.cpp",
+        "application.h",
+        "main.cpp",
+    ]
    Group {
       name: "parser"
       prefix: name+"/"
@@ -26,9 +28,12 @@ MsApplication
            "command_runner.cpp",
            "command_runner.h",
            "option_pool.cpp",
-           "option_pool.h",
-           "option_pool.cpp",
-           "option_pool.h",
+           "option_pool.h"
        ]
+   }
+   Group {
+       name: "utils"
+       prefix: name+"/"
+       files : []
    }
 }
