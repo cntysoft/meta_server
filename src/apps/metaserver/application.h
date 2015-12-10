@@ -8,7 +8,7 @@ namespace metaserver
 {
 using BaseApplication = sn::corelib::Application;
 using Settings = sn::corelib::Settings;
-class Application : BaseApplication
+class Application : public BaseApplication
 {
 public:
    Application(int &argc, char **argv);

@@ -1,6 +1,0 @@
-#ifndef MS_PARSER_OPTION_POOL_H
-#define MS_PARSER_OPTION_POOL_H
-
-
-
-#endif // MS_PARSER_OPTION_POOL_H
