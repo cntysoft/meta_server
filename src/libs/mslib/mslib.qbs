@@ -14,7 +14,13 @@ Product
    cpp.visibility: "minimal"
    cpp.cxxLanguageVersion: "c++14"
    version : "0.1.1"
-   cpp.includePaths: base.concat([
-                                    "."
-                                 ])
+   cpp.includePaths: base.concat(["."])
+   Group {
+       name: "network"
+       prefix: name+"/"
+       files: [
+           "multi_thread_server.cpp",
+           "multi_thread_server.h",
+       ]
+   }
 }

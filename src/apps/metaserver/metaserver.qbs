@@ -49,4 +49,12 @@ MsApplication
        prefix: name+"/"
        files : []
    }
+   
+   Group {
+       name: "worker"
+       prefix: name+"/"
+       files: [
+           
+       ]
+   }
 }
