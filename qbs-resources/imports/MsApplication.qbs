@@ -3,9 +3,10 @@ Product {
    type : "application"
    Depends { 
       name: "Qt"; 
-      submodules: ["core"]
+      submodules: ["core", "network"]
    }
    Depends {name:"cpp"}
+   Depends { name: "corelib"}
    consoleApplication: true
    destinationDirectory: "bin"
    cpp.cxxLanguageVersion: "c++14"
