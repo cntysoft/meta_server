@@ -11,7 +11,7 @@ MsApplication
    }
    Depends { name: "corelib"}
    cpp.includePaths: base.concat([
-                                    "."
+                                    ".","../../libs"
                                  ])
    cpp.defines: base.concat([
                                'META_SERVER_VERSION="' + project.msversion + '"'

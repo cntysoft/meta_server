@@ -1,8 +1,8 @@
 #ifndef META_SERVER_APPLICATION_H
 #define META_SERVER_APPLICATION_H
 
-#include "kernel/application.h"
-#include "kernel/settings.h"
+#include "corelib/kernel/application.h"
+#include "corelib/kernel/settings.h"
 
 namespace metaserver{
 

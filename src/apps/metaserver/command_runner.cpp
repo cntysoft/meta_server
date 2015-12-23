@@ -16,6 +16,7 @@ using sn::corelib::AbstractCommand;
 using sn::corelib::AbstractCommandRunner;
 
 using metaserver::command::GlobalVersionCommand;
+using metaserver::command::StartServerCommand;
 
 CommandRunner::CommandRunner(Application &app)
    : AbstractCommandRunner(app)
@@ -23,7 +24,8 @@ CommandRunner::CommandRunner(Application &app)
    addUsageText("welcome to use sheneninfo metaserver system\n\n", TerminalColor::Green);
    addUsageText("usage: \n\n", TerminalColor::LightBlue);
    addUsageText("--version  print main system version number\n");
-   addUsageText("--help     print help document\n\n");
+   addUsageText("--help     print help document\n");
+   addUsageText("start [--daemon] [--port] start meta server\n\n");
    initCommandPool();
    initRouteItems();
 }
@@ -34,6 +36,10 @@ void CommandRunner::initCommandPool()
       GlobalVersionCommand* cmd = new GlobalVersionCommand(dynamic_cast<CommandRunner&>(runner), meta);
       return cmd;
    });
+   m_cmdRegisterPool.insert("Global_StartServer", [](AbstractCommandRunner& runner, const CommandMeta& meta)->AbstractCommand*{
+      StartServerCommand* cmd = new StartServerCommand(dynamic_cast<CommandRunner&>(runner), meta);
+      return cmd;
+   });
 }
 
 
@@ -42,6 +48,10 @@ void CommandRunner::initRouteItems()
    addCmdRoute("version", "--version", 1, {
                   {"category", "Global"},
                   {"name", "Version"}
+               });
+   addCmdRoute("startserver", "start [--daemon] [--port=]", 1, {
+                  {"category", "Global"},
+                  {"name", "StartServer"}
                });
 }
 

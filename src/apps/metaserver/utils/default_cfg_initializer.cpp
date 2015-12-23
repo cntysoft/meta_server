@@ -18,6 +18,7 @@ static void init_global_cfg(Settings& settings)
 {
    QString runtimeDir = QDir::tempPath()+QDir::separator()+"metaserver";
    settings.setValue("runtimeDir", runtimeDir, MS_CFG_GROUP_GLOBAL);
+   settings.setValue("listenPort", MS_LISTEN_PORT, MS_CFG_GROUP_GLOBAL);
 }
 
 }//metaserver

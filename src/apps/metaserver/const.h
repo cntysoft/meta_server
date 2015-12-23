@@ -2,5 +2,6 @@
 #define META_SERVER_CONST_H
 
 #define MS_CFG_GROUP_GLOBAL "Global"
+#define MS_LISTEN_PORT 9696
 
 #endif // META_SERVER_CONST_H
