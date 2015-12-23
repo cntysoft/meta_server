@@ -1,0 +1,6 @@
+#ifndef META_SERVER_CONST_H
+#define META_SERVER_CONST_H
+
+#define MS_CFG_GROUP_GLOBAL "Global"
+
+#endif // META_SERVER_CONST_H

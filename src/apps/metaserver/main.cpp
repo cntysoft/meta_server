@@ -1,4 +1,5 @@
 #include <QTimer>
+#include <QDebug>
 
 #include "command/route_item.h"
 #include "ds/priority_list.h"
@@ -19,11 +20,15 @@ int main(int argc, char *argv[])
 {
    try{
       CloudControllerApplication app(argc, argv);
+      app.ensureImportantDir();
       CommandRunner cmdrunner(app);
       QTimer::singleShot(0, Qt::PreciseTimer, [&cmdrunner]{
          cmdrunner.run();
       });
-      return app.exec();
+      app.createPidFile();
+      int exitCode = app.exec();
+      app.deletePidFile();
+      return exitCode;
    }catch(const ErrorInfo& errorInfo){
       QString str(errorInfo.toString());
       if(str.size() > 0){

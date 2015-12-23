@@ -3,10 +3,8 @@
 
 #include "command/abstract_command.h"
 
-namespace metaserver 
-{
-namespace command 
-{
+namespace metaserver{
+namespace command{
 
 using sn::corelib::AbstractCommand;
 using sn::corelib::AbstractCommandRunner;
