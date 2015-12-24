@@ -1,7 +1,7 @@
-#include <QHostAddress>
 #include <QString>
 #include <QTcpServer>
-#include <QDnsLookup>
+#include <QProcess>
+#include <QDir>
 
 #include "start_server_command.h"
 #include "const.h"
@@ -21,6 +21,8 @@ using sn::corelib::CommandMeta;
 using sn::corelib::ErrorInfo;
 using sn::corelib::Settings;
 using metaserverlib::network::MultiThreadServer;
+using metaserver::Application;
+
 using metaserver::utils::get_app_ref;
 
 StartServerCommand::StartServerCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta)
@@ -35,14 +37,31 @@ void StartServerCommand::exec()
       throw ErrorInfo(QString("port %1 is not allow").arg(port));
    }
    bool daemon = m_invokeMeta.getCmdArgs().value("daemon") == "true" ? true : false;
-   MultiThreadServer server;
-//   QHostAddress host(QString("127.0.0.1"));
-//   server.setHost(host);
-//   server.setPort(port);
-   bool status = server.run();
-   if(!status){
-      throw ErrorInfo(server.errorString());
+   Application& app = *get_app_ref();
+   if(daemon){
+      QStringList args = app.arguments();
+      args.takeFirst();
+      args.removeAll("--daemon");
+      if(QProcess::startDetached(Application::applicationFilePath(), args, QDir::currentPath())){
+         app.exit(EXIT_SUCCESS);
+      }else{
+         throw ErrorInfo("start daemon failure, Failed to create process");
+      }
    }
+   MultiThreadServer* server = new MultiThreadServer(app);
+   server->setHost(QHostAddress::Any);
+   server->setPort(port);
+   app.createPidFile();
+   bool status = server->run();
+   if(!status){
+      delete server;
+      throw ErrorInfo(server->errorString());
+   }
+   //防止内存泄漏,这里利用闭包复制指针
+   QObject::connect(&app, &Application::aboutToQuit, [server, &app](){
+      delete server;
+      app.deletePidFile();
+   });
 }
 
 qint16 StartServerCommand::getMetaServerListenPort()
