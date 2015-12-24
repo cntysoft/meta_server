@@ -1,7 +1,7 @@
 #ifndef META_SERVER_LIB_GLOBAL_H
 #define META_SERVER_LIB_GLOBAL_H
 
-#include "global/global.h"
+#include "corelib/global/global.h"
 
 #ifdef META_SERVER_STATIC_LIB
    #define META_SERVER_LIB_EXPORT 

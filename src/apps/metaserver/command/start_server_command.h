@@ -10,13 +10,15 @@ using sn::corelib::AbstractCommand;
 using sn::corelib::AbstractCommandRunner;
 using sn::corelib::CommandMeta;
 
-class StartServerCommand : public AbstractCommand 
+class StartServerCommand : public AbstractCommand
 {
 public:
    StartServerCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta);
 public:
    virtual void exec();
+   void onConnect();
 protected:
+   void handleServers();
    qint16 getMetaServerListenPort();
 };
 

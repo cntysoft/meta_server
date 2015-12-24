@@ -5,11 +5,11 @@ MsApplication
    Depends { 
       name: "Qt"; 
       submodules: [
-         "sql",
-         "network"
+         "sql"
       ]
    }
    Depends { name: "corelib"}
+   Depends { name: "mslib"}
    cpp.includePaths: base.concat([
                                     ".","../../libs"
                                  ])
@@ -17,13 +17,13 @@ MsApplication
                                'META_SERVER_VERSION="' + project.msversion + '"'
                             ])
    files: [
-        "application.cpp",
-        "application.h",
-        "command_runner.cpp",
-        "command_runner.h",
-        "const.h",
-        "main.cpp",
-    ]
+      "application.cpp",
+      "application.h",
+      "command_runner.cpp",
+      "command_runner.h",
+      "const.h",
+      "main.cpp",
+   ]
    
    Group {
       name: "command"
@@ -41,8 +41,10 @@ MsApplication
       name: "utils"
       prefix: name+"/"
       files : [
-           "default_cfg_initializer.cpp",
-       ]
+         "common_funcs.cpp",
+         "common_funcs.h",
+         "default_cfg_initializer.cpp",
+      ]
    }
    
    Group {
