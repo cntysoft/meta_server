@@ -6,8 +6,8 @@
 namespace metaserverlib{
 namespace network{
 
-MultiThreadServer::MultiThreadServer(QObject *parent)
-   : AbstractMultiThreadServer(parent)
+MultiThreadServer::MultiThreadServer(Application& app,QObject *parent)
+   : AbstractMultiThreadServer(app, parent)
 {
 }
 
@@ -15,6 +15,7 @@ void MultiThreadServer::incomingConnection(qintptr socketDescriptor)
 {
    qDebug() << socketDescriptor;
 }
+
 
 }//network
 }//metaserverlib

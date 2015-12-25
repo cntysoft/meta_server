@@ -14,11 +14,10 @@ using sn::network::AbstractMultiThreadServer;
 
 class META_SERVER_LIB_EXPORT MultiThreadServer : public AbstractMultiThreadServer
 {
-   Q_OBJECT
 public:
-   MultiThreadServer(QObject* parent = nullptr);
+   MultiThreadServer(Application& app, QObject* parent = nullptr);
 protected:
-   virtual void	incomingConnection(qintptr socketDescriptor);
+   virtual void incomingConnection(qintptr socketDescriptor);
 };
 
 }//network
