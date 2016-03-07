@@ -23,7 +23,7 @@ CommandRunner::CommandRunner(Application &app)
 {
    addUsageText("welcome to use sheneninfo metaserver system\n\n", TerminalColor::Green);
    addUsageText("usage: \n\n", TerminalColor::LightBlue);
-   addUsageText("--version  print main system version number\n");
+   addUsageText("--version  print metaserver system version number\n");
    addUsageText("--help     print help document\n");
    addUsageText("start [--daemon] [--port] start meta server\n\n");
    initCommandPool();
@@ -41,7 +41,6 @@ void CommandRunner::initCommandPool()
       return cmd;
    });
 }
-
 
 void CommandRunner::initRouteItems()
 {

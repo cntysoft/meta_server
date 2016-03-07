@@ -11,7 +11,7 @@ Product
    Depends { name:"cpp" }
    Depends { name:"corelib" }
    destinationDirectory: "lib"
-   cpp.defines: base.concat(type == "staticlibrary" ? ["SE_STATIC_LIB"] : ["SE_LIBRARY"])
+   cpp.defines: base.concat(type == "staticlibrary" ? ["META_SERVER_STATIC_LIB"] : ["META_SERVER_LIBRARY"])
    cpp.visibility: "minimal"
    cpp.cxxLanguageVersion: "c++14"
    version : "0.1.1"
@@ -25,6 +25,7 @@ Product
       name: "global"
       prefix: name+"/"
       files:[
+           "const.h",
            "global.h",
        ]
    }

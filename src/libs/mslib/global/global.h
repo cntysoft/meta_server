@@ -7,9 +7,9 @@
    #define META_SERVER_LIB_EXPORT 
 #else
    #ifdef META_SERVER_LIBRARY
-      #define META_SERVER_LIB_EXPORT Q_DECL_EXPORT
+      #define MS_LIB_EXPORT Q_DECL_EXPORT
    #else
-      #define META_SERVER_LIB_EXPORT Q_DECL_IMPORT
+      #define MS_LIB_EXPORT Q_DECL_IMPORT
    #endif
 #endif
 

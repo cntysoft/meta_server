@@ -17,24 +17,23 @@ MsApplication
                                'META_SERVER_VERSION="' + project.msversion + '"'
                             ])
    files: [
-      "application.cpp",
-      "application.h",
-      "command_runner.cpp",
-      "command_runner.h",
-      "const.h",
-      "main.cpp",
-   ]
+        "application.cpp",
+        "application.h",
+        "command_runner.cpp",
+        "command_runner.h",
+        "main.cpp",
+    ]
    
    Group {
       name: "command"
       prefix: name+"/"
       files:[
-         "command_repo.h",
-         "global_version_command.cpp",
-         "global_version_command.h",
-         "start_server_command.cpp",
-         "start_server_command.h",
-      ]
+           "command_repo.h",
+           "global_command.cpp",
+           "global_command.h",
+           "start_server_command.cpp",
+           "start_server_command.h",
+       ]
    }
    
    Group {
@@ -48,16 +47,18 @@ MsApplication
    }
    
    Group {
-      name: "api"
+      name: "service"
       prefix: name+"/"
       files: [
          
       ]
    }
-   
    Group {
-      name:"api_binder"
+      name: "initializers"
       prefix: name+"/"
-      files:[]
+      files:[
+           "global_initializer_and_cleanup.cpp",
+           "initializer_cleanup_funcs.h",
+       ]
    }
 }

@@ -10,6 +10,16 @@ using sn::corelib::AbstractCommand;
 using sn::corelib::AbstractCommandRunner;
 using sn::corelib::CommandMeta;
 
+class GlobalHelpCommand : public AbstractCommand 
+{
+public:
+   GlobalHelpCommand(AbstractCommandRunner &runner, const CommandMeta &invokeMeta);
+public:
+   virtual void exec();
+   virtual ~GlobalHelpCommand();
+};
+
+
 class GlobalVersionCommand : public AbstractCommand 
 {
 public:

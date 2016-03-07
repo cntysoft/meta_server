@@ -3,7 +3,6 @@
 
 #include "command/abstract_command.h"
 
-
 namespace metaserver{
 namespace command{
 
@@ -17,12 +16,7 @@ public:
    StartServerCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta);
 public:
    virtual void exec();
-   void onConnect();
-protected:
-   void handleServers();
-   qint16 getMetaServerListenPort();
 };
-
 
 }//command
 }//metaserver
