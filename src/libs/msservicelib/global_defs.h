@@ -1,0 +1,18 @@
+#ifndef META_SERVER_SERVICE_GLOBAL_DEFS_H
+#define META_SERVER_SERVICE_GLOBAL_DEFS_H
+
+#include <qglobal.h>
+
+#ifdef META_SERVER_SERVICE_STATIC_LIB
+   #define META_SERVER_SERVICE_EXPORT 
+#else
+   #ifdef META_SERVER_SERVICE_LIBRARY
+      #define META_SERVER_SERVICE_EXPORT Q_DECL_EXPORT
+   #else
+      #define META_SERVER_SERVICE_EXPORT Q_DECL_IMPORT
+   #endif
+#endif
+
+#include "macros.h"
+
+#endif // META_SERVER_SERVICE_GLOBAL_DEFS_H

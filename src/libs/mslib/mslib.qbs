@@ -11,7 +11,20 @@ Product
    Depends { name:"cpp" }
    Depends { name:"corelib" }
    destinationDirectory: "lib"
-   cpp.defines: base.concat(type == "staticlibrary" ? ["META_SERVER_STATIC_LIB"] : ["META_SERVER_LIBRARY"])
+   cpp.defines: {
+      var defines = [];
+      if(product.type == "staticlibrary"){
+         defines.push("META_SERVER_STATIC_LIB");
+      }else{
+         defines.push("META_SERVER_LIBRARY");
+      }
+      defines = defines.concat([
+                                  'META_SERVER_LIB_VERSION="'+ version+'"',
+                                  'META_SERVER_VERSION="' + project.msversion + '"'
+                               ]);
+      return defines;
+   }
+
    cpp.visibility: "minimal"
    cpp.cxxLanguageVersion: "c++14"
    version : "0.1.1"
