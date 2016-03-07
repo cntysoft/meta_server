@@ -52,9 +52,9 @@ void StartServerCommand::exec()
    mslib::network::set_global_server(server);
    sn::corelib::network::set_global_web_service_server(webServiceServer);
    server->setHost(QHostAddress::Any);
-   server->setPort(UMM_LISTEN_PORT);
+   server->setPort(MS_LISTEN_PORT);
    webServiceServer->setHost(QHostAddress::Any);
-   webServiceServer->setPort(UMM_LISTEN_PORT + 1);
+   webServiceServer->setPort(MS_LISTEN_PORT + 1);
    app.createPidFile();
    bool status = server->run();
    bool webServiceStatus = webServiceServer->run();
