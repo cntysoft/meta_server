@@ -1,5 +1,5 @@
-#ifndef META_SERVER_COMMAND_RUNNER_H
-#define META_SERVER_COMMAND_RUNNER_H
+#ifndef MS_COMMAND_RUNNER_H
+#define MS_COMMAND_RUNNER_H
 
 #include "command/abstract_command_runner.h"
 
@@ -20,4 +20,4 @@ private:
 
 }//metaserver
 
-#endif // META_SERVER_COMMAND_RUNNER_H
+#endif // MS_COMMAND_RUNNER_H

@@ -14,13 +14,13 @@ Product
    cpp.defines: {
       var defines = [];
       if(product.type == "staticlibrary"){
-         defines.push("META_SERVER_STATIC_LIB");
+         defines.push("MS_STATIC_LIB");
       }else{
-         defines.push("META_SERVER_LIBRARY");
+         defines.push("MS_LIBRARY");
       }
       defines = defines.concat([
-                                  'META_SERVER_LIB_VERSION="'+ version+'"',
-                                  'META_SERVER_VERSION="' + project.msversion + '"'
+                                  'MS_LIB_VERSION="'+ version+'"',
+                                  'MS_VERSION="' + project.msversion + '"'
                                ]);
       return defines;
    }
@@ -50,5 +50,14 @@ Product
          "multi_thread_server.cpp",
          "multi_thread_server.h",
       ]
+   }
+   
+   Group {
+      name : "kernel"
+      prefix : name + "/"
+      files : [
+           "stddir.h",
+           "stddir.cpp",
+       ]
    }
 }

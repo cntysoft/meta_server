@@ -15,13 +15,13 @@ Product
    cpp.defines: {
       var defines = [];
       if(product.type == "staticlibrary"){
-         defines.push("META_SERVER_SERVICE_STATIC_LIB");
+         defines.push("MS_SERVICE_STATIC_LIB");
       }else{
-         defines.push("META_SERVER_SERVICE_LIBRARY");
+         defines.push("MS_SERVICE_LIBRARY");
       }
       defines = defines.concat([
-                                  'META_SERVER_SERVICE_LIB_VERSION="'+ version+'"',
-                                  'META_SERVER_VERSION="' + project.msversion+'"'
+                                  'MS_SERVICE_LIB_VERSION="'+ version+'"',
+                                  'MS_VERSION="' + project.msversion+'"'
                                ]);
       return defines;
    }
@@ -40,8 +40,12 @@ Product
       qbs.installDir: "lib"
    }
    files: [
-       "global_defs.h",
-       "macros.h",
-       "service_repo.h"
-   ]
+        "global_defs.h",
+        "macros.h",
+        "service_repo.h",
+        "common/uploader.h",
+        "common/uploader_wrapper.cpp",
+        "software_repo/repo_info.cpp",
+        "software_repo/repo_info.h",
+    ]
 }

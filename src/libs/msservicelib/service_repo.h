@@ -1,5 +1,7 @@
-#ifndef META_SERVER_SERVICE_SERVICE_REPO_H
-#define META_SERVER_SERVICE_SERVICE_REPO_H
+#ifndef MS_SERVICE_SERVICE_REPO_H
+#define MS_SERVICE_SERVICE_REPO_H
 
+#include "software_repo/repo_info.h"
+#include "common/uploader.h"
 
-#endif // META_SERVER_SERVICE_SERVICE_REPO_H
+#endif // MS_SERVICE_SERVICE_REPO_H

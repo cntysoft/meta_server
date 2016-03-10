@@ -1,5 +1,5 @@
-#ifndef META_SERVER_LIB_MULTI_THREAD_SERVER
-#define META_SERVER_LIB_MULTI_THREAD_SERVER
+#ifndef MS_LIB_MULTI_THREAD_SERVER_H
+#define MS_LIB_MULTI_THREAD_SERVER_H
 
 #include "corelib/network/abstract_multi_thread_server.h"
 #include "corelib/kernel/application.h"
@@ -43,4 +43,4 @@ MS_LIB_EXPORT void set_global_server(MultiThreadServer* server);
 }//network
 }//mslib
 
-#endif // META_SERVER_LIB_MULTI_THREAD_SERVER
+#endif // MS_LIB_MULTI_THREAD_SERVER_H

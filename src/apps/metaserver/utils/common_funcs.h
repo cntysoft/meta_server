@@ -1,5 +1,5 @@
-#ifndef META_SERVER_UTILS_COMMON_FUNCS_H
-#define META_SERVER_UTILS_COMMON_FUNCS_H
+#ifndef MS_UTILS_COMMON_FUNCS_H
+#define MS_UTILS_COMMON_FUNCS_H
 
 #include "application.h"
 
@@ -13,4 +13,4 @@ MetaServerApplication* get_app_ref();
 }//utils
 }//metaserver
 
-#endif // META_SERVER_UTILS_COMMON_FUNCS_H
+#endif // MS_UTILS_COMMON_FUNCS_H

@@ -1,5 +1,5 @@
-#ifndef META_SERVER_APPLICATION_H
-#define META_SERVER_APPLICATION_H
+#ifndef MS_APPLICATION_H
+#define MS_APPLICATION_H
 
 #include "corelib/kernel/application.h"
 #include "corelib/kernel/settings.h"
@@ -20,4 +20,4 @@ public:
 
 }//metaserver
 
-#endif // META_SERVER_APPLICATION_H
+#endif // MS_APPLICATION_H

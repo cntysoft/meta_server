@@ -1,11 +1,11 @@
-#ifndef META_SERVER_SERVICE_MACROS_H
-#define META_SERVER_SERVICE_MACROS_H
+#ifndef MS_SERVICE_MACROS_H
+#define MS_SERVICE_MACROS_H
 
-#define META_SERVER_USING_SERVICE_NAMESPACES \
+#define MS_USING_SERVICE_NAMESPACES \
 using sn::corelib::network::AbstractService;\
 using sn::corelib::network::ServiceInvokeResponse;\
 using sn::corelib::network::ServiceInvokeRequest;\
 using sn::corelib::network::ServiceProvider;
    
-#endif // META_SERVER_SERVICE_MACROS_H
+#endif // MS_SERVICE_MACROS_H
 

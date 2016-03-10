@@ -1,4 +1,10 @@
-#ifndef INITIALIZER_CLEANUP_FUNCS_H
-#define INITIALIZER_CLEANUP_FUNCS_H
+#ifndef MS_INITIALIZERS_INITIALIZER_CLEANUP_FUNCS_H
+#define MS_INITIALIZERS_INITIALIZER_CLEANUP_FUNCS_H
+namespace metaserver{
 
-#endif // INITIALIZER_CLEANUP_FUNCS_H
+void init_service_provider();
+void cleanup_service_provider();
+
+}//metaserver
+
+#endif // MS_INITIALIZERS_INITIALIZER_CLEANUP_FUNCS_H

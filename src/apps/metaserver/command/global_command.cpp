@@ -29,7 +29,7 @@ GlobalVersionCommand::GlobalVersionCommand(AbstractCommandRunner& runner, const 
 void GlobalVersionCommand::exec()
 {
    printConsoleMsg("meta server version ");
-   printConsoleMsg(QString("%1\n").arg(META_SERVER_VERSION), TerminalColor::Cyan);
+   printConsoleMsg(QString("%1\n").arg(MS_VERSION), TerminalColor::Cyan);
    exit(EXIT_SUCCESS);
 }
 
