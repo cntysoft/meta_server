@@ -45,14 +45,7 @@ MsApplication
          "default_cfg_initializer.cpp",
       ]
    }
-   
-   Group {
-      name: "service"
-      prefix: name+"/"
-      files: [
-         
-      ]
-   }
+
    Group {
       name: "initializers"
       prefix: name+"/"
