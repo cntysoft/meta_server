@@ -40,7 +40,11 @@ Product
       qbs.installDir: "lib"
    }
    files: [
+        "common/download_server.h",
+        "common/download_server_wrapper.cpp",
         "global_defs.h",
+        "kelecloud/instance_deploy.h",
+        "kelecloud/instance_deploy_wrapper.cpp",
         "macros.h",
         "service_repo.h",
         "common/uploader.h",

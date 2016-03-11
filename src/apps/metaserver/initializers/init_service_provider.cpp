@@ -14,8 +14,14 @@ void init_service_provider()
    provider.addServiceToPool("Common/Uploader", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::UploaderWrapper(provider);
                          });
+   provider.addServiceToPool("Common/DownloadServer", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::common::DownloadServerWrapper(provider);
+                         });
    provider.addServiceToPool("SoftwareRepo/RepoInfo", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::softwarerepo::RepoInfoWrapper(provider);
+                         });
+   provider.addServiceToPool("KeleCloud/InstanceDeploy", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::kelecloud::InstanceDeployWrapper(provider);
                          });
 }
 
