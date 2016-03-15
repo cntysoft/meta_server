@@ -16,6 +16,7 @@ using sn::corelib::AbstractCommand;
 using sn::corelib::AbstractCommandRunner;
 
 using metaserver::command::GlobalVersionCommand;
+using metaserver::command::GlobalHelpCommand;
 using metaserver::command::StartServerCommand;
 using metaserver::command::GlobalPidFilenameCommand;
 
@@ -26,7 +27,7 @@ CommandRunner::CommandRunner(Application &app)
    addUsageText("usage: \n\n", TerminalColor::LightBlue);
    addUsageText("--version  print metaserver system version number\n");
    addUsageText("--help     print help document\n");
-   addUsageText("start [--daemon] [--port] start meta server\n\n");
+   addUsageText("start [--daemon] [--port] start meta server\n");
    addUsageText("pidfilename get application pid filename\n\n");
    initCommandPool();
    initRouteItems();
@@ -36,6 +37,10 @@ void CommandRunner::initCommandPool()
 {
    m_cmdRegisterPool.insert("Global_Version", [](AbstractCommandRunner& runner, const CommandMeta& meta)->AbstractCommand*{
       GlobalVersionCommand* cmd = new GlobalVersionCommand(dynamic_cast<CommandRunner&>(runner), meta);
+      return cmd;
+   });
+   m_cmdRegisterPool.insert("Global_Help", [](AbstractCommandRunner& runner, const CommandMeta& meta)->AbstractCommand*{
+      GlobalHelpCommand *cmd = new GlobalHelpCommand(dynamic_cast<CommandRunner&>(runner), meta);
       return cmd;
    });
    m_cmdRegisterPool.insert("Global_StartServer", [](AbstractCommandRunner& runner, const CommandMeta& meta)->AbstractCommand*{
@@ -53,6 +58,10 @@ void CommandRunner::initRouteItems()
    addCmdRoute("version", "--version", 1, {
                   {"category", "Global"},
                   {"name", "Version"}
+               });
+   addCmdRoute("help", "--help", 1, {
+                  {"category", "Global"},
+                  {"name", "Help"}
                });
    addCmdRoute("pidfilename", "pidfilename", 1, {
                   {"category", "Global"},

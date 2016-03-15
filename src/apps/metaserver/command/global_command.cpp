@@ -1,5 +1,5 @@
 #include "global_command.h"
-#include "io/terminal.h"
+#include "corelib/io/terminal.h"
 #include "corelib/kernel/application.h"
 #include <iostream>
 namespace metaserver{
