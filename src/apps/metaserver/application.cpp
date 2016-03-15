@@ -7,7 +7,7 @@ extern void init_defualt_cfg(Settings &settings);
 Application::Application(int &argc, char **argv)
    : BaseApplication(argc, argv)
 {
-   setApplicationName("metaserver");
+   setApplicationName("meta_server");
 }
 
 

@@ -1,7 +1,7 @@
 import qbs 1.0
 MsApplication
 {
-   name : "metaserver"
+   name : "meta_server"
    Depends { 
       name: "Qt"; 
       submodules: [

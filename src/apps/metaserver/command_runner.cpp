@@ -17,6 +17,7 @@ using sn::corelib::AbstractCommandRunner;
 
 using metaserver::command::GlobalVersionCommand;
 using metaserver::command::StartServerCommand;
+using metaserver::command::GlobalPidFilenameCommand;
 
 CommandRunner::CommandRunner(Application &app)
    : AbstractCommandRunner(app)
@@ -26,6 +27,7 @@ CommandRunner::CommandRunner(Application &app)
    addUsageText("--version  print metaserver system version number\n");
    addUsageText("--help     print help document\n");
    addUsageText("start [--daemon] [--port] start meta server\n\n");
+   addUsageText("pidfilename get application pid filename\n\n");
    initCommandPool();
    initRouteItems();
 }
@@ -40,6 +42,10 @@ void CommandRunner::initCommandPool()
       StartServerCommand* cmd = new StartServerCommand(dynamic_cast<CommandRunner&>(runner), meta);
       return cmd;
    });
+   m_cmdRegisterPool.insert("Global_PidFilename", [](AbstractCommandRunner& runner, const CommandMeta& meta)->AbstractCommand*{
+      GlobalPidFilenameCommand* cmd = new GlobalPidFilenameCommand(dynamic_cast<CommandRunner&>(runner), meta);
+      return cmd;
+   });
 }
 
 void CommandRunner::initRouteItems()
@@ -47,6 +53,10 @@ void CommandRunner::initRouteItems()
    addCmdRoute("version", "--version", 1, {
                   {"category", "Global"},
                   {"name", "Version"}
+               });
+   addCmdRoute("pidfilename", "pidfilename", 1, {
+                  {"category", "Global"},
+                  {"name", "PidFilename"}
                });
    addCmdRoute("startserver", "start [--daemon] [--port=]", 1, {
                   {"category", "Global"},

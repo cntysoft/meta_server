@@ -1,9 +1,11 @@
 #include "global_command.h"
 #include "io/terminal.h"
-
+#include "corelib/kernel/application.h"
+#include <iostream>
 namespace metaserver{
 namespace command{
 
+using sn::corelib::Application;
 using sn::corelib::TerminalColor;
 
 GlobalHelpCommand::GlobalHelpCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta)
@@ -34,6 +36,20 @@ void GlobalVersionCommand::exec()
 }
 
 GlobalVersionCommand::~GlobalVersionCommand()
+{}
+
+GlobalPidFilenameCommand::GlobalPidFilenameCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta)
+   : AbstractCommand(runner, invokeMeta)
+{
+}
+
+void GlobalPidFilenameCommand::exec()
+{
+   std::cout << Application::instance()->getPidFilename().toStdString();
+   exit(EXIT_SUCCESS);
+}
+
+GlobalPidFilenameCommand::~GlobalPidFilenameCommand()
 {}
 
 }//command

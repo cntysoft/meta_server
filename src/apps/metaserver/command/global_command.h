@@ -29,6 +29,15 @@ public:
    virtual ~GlobalVersionCommand();
 };
 
+class GlobalPidFilenameCommand : public AbstractCommand 
+{
+public:
+   GlobalPidFilenameCommand(AbstractCommandRunner& runner, const CommandMeta& invokeMeta);
+public:
+   virtual void exec();
+   virtual ~GlobalPidFilenameCommand();
+};
+
 }//command
 }//metaserver
 
