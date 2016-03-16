@@ -30,6 +30,19 @@ class MS_SERVICE_EXPORT InstanceDeployWrapper : public AbstractService
       QString serverAddress;
       QSharedPointer<ServiceInvoker> serviceInvoker;
    };
+   const static int STEP_PREPARE = -1;
+   const static int STEP_INIT_CONTEXT = 0;
+   const static int STEP_DOWNLOAD_PKG = 1;
+   const static int STEP_DOWNLOAD_COMPLETE = 2;
+   const static int STEP_EXTRA_PKG = 3;
+   const static int STEP_COPY_FILES = 4;
+   const static int STEP_CREATE_DB = 5;
+   const static int STEP_ADD_DOMAIN_RECORD = 6;
+   const static int STEP_NGINX_CFG = 7;
+   const static int STEP_RESTART_SERVER = 8;
+   const static int STEP_CLEANUP = 9;
+   const static int STEP_FINISH = 10;
+   const static int STEP_ERROR = 11;
 public:
    InstanceDeployWrapper(ServiceProvider& provider);
    Q_INVOKABLE ServiceInvokeResponse deploy(const ServiceInvokeRequest &request);

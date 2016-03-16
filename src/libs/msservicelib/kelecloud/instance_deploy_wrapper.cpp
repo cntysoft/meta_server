@@ -15,10 +15,10 @@ void kelecloud_instance_deploy_handler(const ServiceInvokeResponse &response, vo
       self->m_context->response.setDataItem("msg", response.getDataItem("msg"));
       self->m_context->response.setDataItem("step", response.getDataItem("step"));
       self->writeInterResponse(self->m_context->request, self->m_context->response);
-//      if(response.getDataItem("step").toInt() == InstanceDeployWrapper::STEP_FINISH){
-//         self->m_serviceInvoker->disconnectFromServer();
-//         self->clearState();
-//      }
+      if(response.getDataItem("step").toInt() == InstanceDeployWrapper::STEP_FINISH){
+         self->m_serviceInvoker->disconnectFromServer();
+         self->clearState();
+      }
    }else{
       //错误处理
       self->m_context->response.setStatus(false);
