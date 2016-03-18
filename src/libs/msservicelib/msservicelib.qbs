@@ -42,6 +42,8 @@ Product
    files: [
         "common/download_server.h",
         "common/download_server_wrapper.cpp",
+        "common/filesystem.h",
+        "common/filesystem_wrapper.cpp",
         "global_defs.h",
         "kelecloud/instance_deploy.h",
         "kelecloud/instance_deploy_wrapper.cpp",

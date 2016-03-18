@@ -5,5 +5,5 @@
 #include "software_repo/repo_info.h"
 #include "common/uploader.h"
 #include "common/download_server.h"
-
+#include "common/filesystem.h"
 #endif // MS_SERVICE_SERVICE_REPO_H

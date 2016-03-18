@@ -17,6 +17,9 @@ void init_service_provider()
    provider.addServiceToPool("Common/DownloadServer", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::DownloadServerWrapper(provider);
                          });
+   provider.addServiceToPool("Common/Filesystem", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::common::FilesystemWrapper(provider);
+                         });
    provider.addServiceToPool("SoftwareRepo/RepoInfo", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::softwarerepo::RepoInfoWrapper(provider);
                          });
