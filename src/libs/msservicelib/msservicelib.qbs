@@ -40,18 +40,46 @@ Product
       qbs.installDir: "lib"
    }
    files: [
-        "common/download_server.h",
-        "common/download_server_wrapper.cpp",
-        "common/filesystem.h",
-        "common/filesystem_wrapper.cpp",
-        "global_defs.h",
-        "kelecloud/instance_deploy.h",
-        "kelecloud/instance_deploy_wrapper.cpp",
-        "macros.h",
-        "service_repo.h",
-        "common/uploader.h",
-        "common/uploader_wrapper.cpp",
-        "software_repo/repo_info.cpp",
-        "software_repo/repo_info.h",
-    ]
+      "global_defs.h",
+      "macros.h",
+      "service_repo.h"
+   ]
+   Group {
+      name : "common"
+      prefix : name+"/"
+      files : [
+         "download_server.h",
+         "download_server_wrapper.cpp",
+         "filesystem.h",
+         "filesystem_wrapper.cpp",
+         "uploader.h",
+         "uploader_wrapper.cpp",
+      ]
+   }
+   Group {
+      name : "kelecloud"
+      prefix : name+"/"
+      files : [
+         "instance_deploy.h",
+         "instance_deploy_wrapper.cpp"
+      ]
+   }
+   Group {
+      name : "software_repo"
+      prefix : name+"/"
+      files : [
+         "repo_info.h",
+         "repo_info_wrapper.cpp",
+      ]
+   }
+   Group {
+      name : "zhuchao"
+      prefix : name+"/"
+      files : [
+           "new_deploy.h",
+           "new_deploy_wrapper.cpp",
+           "upgrade.h",
+           "upgrade_wrapper.cpp",
+       ]
+   }
 }
