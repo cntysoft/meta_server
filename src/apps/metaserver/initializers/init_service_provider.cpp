@@ -29,6 +29,9 @@ void init_service_provider()
    provider.addServiceToPool("ZhuChao/NewDeploy", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::zhuchao::NewDeployWrapper(provider);
                          });
+   provider.addServiceToPool("ZhuChao/UpgradeDeploy", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::zhuchao::UpgradeDeployWrapper(provider);
+                         });
 }
 
 void cleanup_service_provider()

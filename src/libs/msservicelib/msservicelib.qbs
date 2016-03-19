@@ -78,8 +78,8 @@ Product
       files : [
            "new_deploy.h",
            "new_deploy_wrapper.cpp",
-           "upgrade.h",
-           "upgrade_wrapper.cpp",
+           "upgrade_deploy.h",
+           "upgrade_deploy_wrapper.cpp",
        ]
    }
 }
