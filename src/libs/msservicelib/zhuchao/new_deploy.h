@@ -27,6 +27,7 @@ class MS_SERVICE_EXPORT NewDeployWrapper : public AbstractService
       ServiceInvokeResponse response;
       QString targetVersion;
       QString serverAddress;
+      bool withoutDb;
       QSharedPointer<ServiceInvoker> serviceInvoker;
    };
    const static int STEP_PREPARE = -1;

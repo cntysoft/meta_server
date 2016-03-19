@@ -39,7 +39,7 @@ NewDeployWrapper::NewDeployWrapper(sn::corelib::network::ServiceProvider &provid
 ServiceInvokeResponse NewDeployWrapper::deploy(const ServiceInvokeRequest& request)
 {
    const QMap<QString, QVariant> &args = request.getArgs();
-   checkRequireFields(args, {"targetVersion", "serverAddress"});
+   checkRequireFields(args, {"targetVersion", "serverAddress", "withoutDb"});
    ServiceInvokeResponse response("ZhuChao/NewDeploy/deploy", true);
    response.setSerial(request.getSerial());   
    if(m_isInAction){
@@ -53,6 +53,7 @@ ServiceInvokeResponse NewDeployWrapper::deploy(const ServiceInvokeRequest& reque
    m_context.reset(new NewDeployContext);
    m_context->request = request;
    m_context->response = response;
+   m_context->withoutDb = args.value("withoutDb").toBool();
    m_context->targetVersion = args.value("targetVersion").toString();
    QString serverAddress = args.value("serverAddress").toString();
    m_context->serverAddress = serverAddress;
@@ -76,7 +77,9 @@ void NewDeployWrapper::connectToServerHandler()
    m_context->response.setDataItem("msg", "向luoxi deploy服务器发送部署请求");
    writeInterResponse(m_context->request, m_context->response);
    ServiceInvokeRequest serviceRequest("ZhuChao/NewDeploy", "deploy", {
-                                          {"targetVersion", m_context->targetVersion}});
+                                          {"targetVersion", m_context->targetVersion},
+                                          {"withoutDb", m_context->withoutDb}
+                                       });
    m_context->serviceInvoker->request(serviceRequest, zhuchao_new_deploy_handler, static_cast<void*>(this));
 }
 
