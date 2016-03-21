@@ -29,6 +29,7 @@ public:
       QString toVersion;
       QString serverAddress;
       bool forceUpgrade;
+      bool withoutUpgradeScript;
       QSharedPointer<ServiceInvoker> serviceInvoker;
    };
    const static int STEP_PREPARE = -1;

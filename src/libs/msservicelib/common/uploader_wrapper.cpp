@@ -28,12 +28,9 @@ ServiceInvokeResponse UploaderWrapper::init(const ServiceInvokeRequest &request)
 {
    try{
       QMap<QString, QVariant> args = request.getArgs();
-      QString baseDir;
-      if(!args.contains("baseDir")){
-         baseDir = StdDir::getSoftwareRepoDir();
-      }else{
-         baseDir = args.value("baseDir").toString();
-      }
+      checkRequireFields(args, {"filename", "filesize", "cycleSize", "chunkSize", "uploadDir"});
+      QString baseDir = StdDir::getBaseDataDir()+"/"+args.value("uploadDir").toString();
+      baseDir.replace("//", "/");
       if(!Filesystem::dirExist(baseDir)){
          Filesystem::createPath(baseDir);
       }

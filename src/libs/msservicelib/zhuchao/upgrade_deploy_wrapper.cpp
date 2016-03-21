@@ -51,7 +51,7 @@ UpgradeDeployWrapper::UpgradeDeployWrapper(ServiceProvider &provider)
 ServiceInvokeResponse UpgradeDeployWrapper::upgrade(const ServiceInvokeRequest &request)
 {
    const QMap<QString, QVariant> &args = request.getArgs();
-   checkRequireFields(args, {"fromVersion", "toVersion", "serverAddress","forceUpgrade"});
+   checkRequireFields(args, {"fromVersion", "toVersion", "serverAddress","forceUpgrade", "withoutUpgradeScript"});
    ServiceInvokeResponse response("ZhuChao/Upgrade/upgrade", true);
    if(m_isInAction){
       response.setIsFinal(true);
@@ -69,6 +69,7 @@ ServiceInvokeResponse UpgradeDeployWrapper::upgrade(const ServiceInvokeRequest &
    m_context->request = request;
    m_context->response = response;
    m_context->serverAddress = args.value("serverAddress").toString();
+   m_context->withoutUpgradeScript = args.value("withoutUpgradeScript").toBool();
    response.setDataItem("msg", QString("目标更新服务器地址 %1").arg(m_context->serverAddress));
    writeInterResponse(request, response);
    response.setDataItem("msg", "正在连接更新服务器");
@@ -90,10 +91,11 @@ void UpgradeDeployWrapper::connectToServerHandler()
    writeInterResponse(m_context->request, m_context->response);
    m_context->response.setDataItem("msg", "向luoxi deploy服务器发送升级请求");
    writeInterResponse(m_context->request, m_context->response);
-   ServiceInvokeRequest serviceRequest("ZhuChao/Upgrade", "upgrade", {
+   ServiceInvokeRequest serviceRequest("ZhuChao/UpgradeDeploy", "upgrade", {
                                           {"fromVersion", m_context->fromVersion}, 
                                           {"toVersion", m_context->toVersion},
-                                          {"forceUpgrade", m_context->forceUpgrade}
+                                          {"forceUpgrade", m_context->forceUpgrade},
+                                          {"withoutUpgradeScript", m_context->withoutUpgradeScript}
                                        });
    m_context->serviceInvoker->request(serviceRequest, upgrade_zhuchao_handler, static_cast<void*>(this));
 }
