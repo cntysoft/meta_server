@@ -36,10 +36,12 @@ class MS_SERVICE_EXPORT NewDeployWrapper : public AbstractService
    const static int STEP_DOWNLOAD_COMPLETE = 2;
    const static int STEP_EXTRA_PKG = 3;
    const static int STEP_COPY_FILES = 4;
-   const static int STEP_CREATE_DB = 5;
-   const static int STEP_CLEANUP = 6;
-   const static int STEP_FINISH = 7;
-   const static int STEP_ERROR = 8;
+   const static int STEP_PROCESS_INFO = 5;
+   const static int STEP_CREATE_DB = 6;
+   const static int STEP_CLEANUP = 7;
+   const static int STEP_FINISH = 8;
+   const static int STEP_SETUP_PERM = 9;
+   const static int STEP_ERROR = 10;
 public:
    NewDeployWrapper(ServiceProvider &provider);
    Q_INVOKABLE ServiceInvokeResponse deploy(const ServiceInvokeRequest &request);

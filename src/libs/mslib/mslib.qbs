@@ -37,6 +37,8 @@ Product
       name: "global"
       prefix: name+"/"
       files:[
+           "common_funcs.cpp",
+           "common_funcs.h",
            "const.h",
            "global.h",
        ]

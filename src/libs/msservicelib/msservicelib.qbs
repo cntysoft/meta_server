@@ -48,13 +48,15 @@ Product
       name : "common"
       prefix : name+"/"
       files : [
-         "download_server.h",
-         "download_server_wrapper.cpp",
-         "filesystem.h",
-         "filesystem_wrapper.cpp",
-         "uploader.h",
-         "uploader_wrapper.cpp",
-      ]
+           "download_server.h",
+           "download_server_wrapper.cpp",
+           "filesystem.h",
+           "filesystem_wrapper.cpp",
+           "server_info.h",
+           "server_info_wrapper.cpp",
+           "uploader.h",
+           "uploader_wrapper.cpp",
+       ]
    }
    Group {
       name : "kelecloud"
