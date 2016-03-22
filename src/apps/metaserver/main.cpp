@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
       qAddPostRoutine(metaserver::global_cleanup);
       app.ensureImportantDir();
       app.watchUnixSignal(SIGINT, true);
+      app.watchUnixSignal(SIGTERM, true);
+      app.watchUnixSignal(SIGABRT, true);
       CommandRunner cmdrunner(app);
       QTimer::singleShot(0, Qt::PreciseTimer, [&cmdrunner]{
          cmdrunner.run();
