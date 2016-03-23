@@ -8,7 +8,7 @@ Project
    property string appInstallDir : "bin"
    property string installRoot: "/usr/local"
    property string resourcesInstallDir: "share/deploysystem"
-   property string msversion: "v0.0.1"
+   property string msversion: "0.0.1"
    property stringList libRPaths: {
       if (!enableRPath){
          return undefined;

@@ -11,14 +11,14 @@ using sn::corelib::network::AbstractService;
 void init_service_provider()
 {
    ServiceProvider& provider = ServiceProvider::instance();
+   provider.addServiceToPool("ServerStatus/ServerInfo", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::serverstatus::ServerInfoWrapper(provider);
+                         });
    provider.addServiceToPool("Common/Uploader", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::UploaderWrapper(provider);
                          });
    provider.addServiceToPool("Common/DownloadServer", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::DownloadServerWrapper(provider);
-                         });
-   provider.addServiceToPool("Common/ServerInfo", [](ServiceProvider& provider)-> AbstractService*{
-                            return new msservice::common::ServerInfoWrapper(provider);
                          });
    provider.addServiceToPool("Common/Filesystem", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::FilesystemWrapper(provider);

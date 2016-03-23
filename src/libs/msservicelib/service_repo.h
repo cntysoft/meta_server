@@ -6,8 +6,8 @@
 #include "common/uploader.h"
 #include "common/download_server.h"
 #include "common/filesystem.h"
-#include "common/server_info.h"
 #include "zhuchao/new_deploy.h"
 #include "zhuchao/upgrade_deploy.h"
+#include "serverstatus/server_info.h"
 
 #endif // MS_SERVICE_SERVICE_REPO_H

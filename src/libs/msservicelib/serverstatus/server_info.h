@@ -1,5 +1,5 @@
-#ifndef MS_SERVICE_COMMON_SERVER_INFO_H
-#define MS_SERVICE_COMMON_SERVER_INFO_H
+#ifndef MS_SERVICE_SERVER_STATUS_SERVER_INFO_H
+#define MS_SERVICE_SERVER_STATUS_SERVER_INFO_H
 
 #include <QSharedPointer>
 #include <QString>
@@ -11,7 +11,7 @@
 #include "corelib/network/rpc/service_provider.h"
 
 namespace msservice{
-namespace common{
+namespace serverstatus{
 
 MS_USING_SERVICE_NAMESPACES
 
@@ -23,8 +23,7 @@ public:
    Q_INVOKABLE ServiceInvokeResponse getVersionInfo(const ServiceInvokeRequest &request);
 };
 
-
-}//common
+}//serverstatus
 }//msservice
 
-#endif // MS_SERVICE_COMMON_SERVER_INFO_H
+#endif // MS_SERVICE_SERVER_STATUS_SERVER_INFO_H
