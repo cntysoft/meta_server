@@ -14,6 +14,9 @@ void init_service_provider()
    provider.addServiceToPool("ServerStatus/ServerInfo", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::serverstatus::ServerInfoWrapper(provider);
                          });
+   provider.addServiceToPool("ServerStatus/LuoXiServerInfo", [](ServiceProvider& provider)-> AbstractService*{
+                            return new msservice::serverstatus::LuoXiServerInfoWrapper(provider);
+                         });
    provider.addServiceToPool("Common/Uploader", [](ServiceProvider& provider)-> AbstractService*{
                             return new msservice::common::UploaderWrapper(provider);
                          });

@@ -9,5 +9,6 @@
 #include "zhuchao/new_deploy.h"
 #include "zhuchao/upgrade_deploy.h"
 #include "serverstatus/server_info.h"
+#include "serverstatus/luoxi_server_info.h"
 
 #endif // MS_SERVICE_SERVICE_REPO_H
