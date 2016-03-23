@@ -4,7 +4,7 @@
 #include <QStringList>
 #include <QMap>
 #include <QString>
-#include <QDebug>
+ 
 #include <QSharedPointer>
 #include <QVariant>
 

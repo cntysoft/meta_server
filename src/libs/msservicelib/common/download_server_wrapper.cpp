@@ -2,7 +2,6 @@
 #include <QString>
 #include <QVariant>
 #include <QByteArray>
-#include <QDebug>
 
 #include "download_server.h"
 #include "mslib/kernel/stddir.h"

@@ -1,7 +1,7 @@
 #include "new_deploy.h"
 
 #include "mslib/global/const.h"
-#include <QDebug>
+
 namespace msservice{
 namespace zhuchao{
 

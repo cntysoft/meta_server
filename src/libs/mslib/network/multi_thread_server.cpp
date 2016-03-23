@@ -1,7 +1,6 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QDataStream>
-#include <QDebug>
 
 #include "multi_thread_server.h"
 

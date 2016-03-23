@@ -3,7 +3,6 @@
 #include <QProcess>
 #include <QDir>
 #include <QVariant>
-#include <QDebug>
 
 #include "start_server_command.h"
 #include "utils/common_funcs.h"
