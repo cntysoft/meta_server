@@ -76,6 +76,8 @@ Product
       name : "zhuchao"
       prefix : name+"/"
       files : [
+           "db_backup.h",
+           "db_backup_wrapper.cpp",
            "new_deploy.h",
            "new_deploy_wrapper.cpp",
            "upgrade_deploy.h",
