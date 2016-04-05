@@ -41,6 +41,9 @@ void init_service_provider()
    provider.addServiceToPool("ZhuChao/DbBackup", [](ServiceProvider& provider)-> AbstractService*{
       return new msservice::zhuchao::DbBackupWrapper(provider);
    });
+   provider.addServiceToPool("ZhuChao/ShopDbUpgrader", [](ServiceProvider& provider)-> AbstractService*{
+      return new msservice::zhuchao::ShopDbUpgraderWrapper(provider);
+   });
 }
 
 void cleanup_service_provider()

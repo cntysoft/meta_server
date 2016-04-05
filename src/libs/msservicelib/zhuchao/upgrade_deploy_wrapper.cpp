@@ -3,10 +3,6 @@
 #include <QVariant>
 #include <QStringList>
 #include <QMap>
-#include <QString>
- 
-#include <QSharedPointer>
-#include <QVariant>
 
 #include "upgrade_deploy.h"
 #include "corelib/network/rpc/service_invoker.h"
@@ -115,13 +111,11 @@ void UpgradeDeployWrapper::clearState()
    m_context.clear();
    m_eventLoop.exit(0);
    if(!m_serviceInvoker.isNull()){
-      m_serviceInvoker->disconnect();
+      disconnect(m_serviceInvoker.data(), &ServiceInvoker::connectedToServerSignal, this, &UpgradeDeployWrapper::connectToServerHandler);
+      disconnect(m_serviceInvoker.data(), &ServiceInvoker::connectErrorSignal, this, &UpgradeDeployWrapper::connectToServerErrorHandler);
+      m_serviceInvoker->resetStatus();
    }
 }
-//void UpgradeDeployWrapper::notifySocketDisconnect(QWebSocket *socket)
-//{
-
-//}
 
 }//zhuchao
 }//msservice
