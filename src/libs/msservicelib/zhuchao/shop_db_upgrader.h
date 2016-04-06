@@ -36,11 +36,14 @@ public:
    const static int STEP_DOWNLOAD_PKG = 1;
    const static int STEP_DOWNLOAD_COMPLETE = 2;
    const static int STEP_EXTRA_PKG = 3;
-   const static int STEP_BACKUP_DB = 4;
-   const static int STEP_RUN_UPGRADE_SCRIPT = 5;
-   const static int STEP_CLEANUP = 6;
-   const static int STEP_FINISH = 7;
-   const static int STEP_ERROR = 8;
+   const static int STEP_CYCLE_BEGIN = 4;
+   const static int STEP_BACKUP_DB = 5;
+   const static int STEP_RUN_UPGRADE_SCRIPT = 6;
+   const static int STEP_CYCLE_END = 7;
+   const static int STEP_CLEANUP = 8;
+   const static int STEP_FINISH = 9;
+   const static int STEP_ERROR = 10;
+   
 public:
    ShopDbUpgraderWrapper(ServiceProvider& provider);
    Q_INVOKABLE ServiceInvokeResponse upgrade(const ServiceInvokeRequest &request);
